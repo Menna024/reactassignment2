@@ -1,0 +1,38 @@
+@import 'VarSideBar';
+
+.side-bar {
+    background-color: $background-white;
+    width: 17%;
+    top:0;
+    left:0;
+    bottom: 0;
+    position: fixed;  
+    overflow: hidden;
+}
+
+.logo-img{
+    margin-top: 50px;
+    width: 65%;
+    height: 42%;    
+}
+
+@for $i from 0 through $side-bar-items-count
+{
+    .side-bar-item-#{$i} {
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+        display: block;
+        width: 75%;
+        border-radius: 5%;
+        margin: 0 auto;
+        transition: 0.3s;
+        &:hover {
+            background-color: #f1f1f1;            
+        }
+
+        
+    }
+}

@@ -1,0 +1,24 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  width: 80%;
+  margin-left: auto;
+}
+
+.footer {
+  background-color: white;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+}
+
+.side-bar {
+  z-index: 2;
+}/*# sourceMappingURL=MainLayout.css.map */
