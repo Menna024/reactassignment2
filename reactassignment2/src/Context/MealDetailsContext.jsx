@@ -3,13 +3,12 @@ import  axios  from "axios";
 
 export const MealDetailsContext = createContext();
 
-
 function getMealDetails(id  ) {
     console.log('Inside getMealDetails');
     console.log(`url is`);
-    console.log(`www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+    console.log(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
     
-    return axios.get(`www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+    return axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
         .then((response) => {
             console.log('Response:', response.data);
             return response.data;

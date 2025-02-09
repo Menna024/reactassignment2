@@ -4,4 +4,73 @@ body {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+}
+
+.meal-div {
+  display: flex;
+  margin-top: 1.25rem;
+  width: 100%;
+  flex-direction: column;
+}
+.meal-div .meal-page {
+  display: flex;
+}
+.meal-div .meal-page .meal {
+  width: 40%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.meal-div .meal-page .meal .meal-img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.meal-div .meal-page .meal .meal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  padding-bottom: 1rem;
+}
+.meal-div .meal-page .meal .meal-btns {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.25rem;
+}
+.meal-div .meal-page .meal .meal-btns button {
+  border-radius: 8px;
+  width: 7rem;
+}
+.meal-div .meal-page .meal .meal-btns button:first-child {
+  background-color: red;
+}
+.meal-div .meal-page .meal-ingredients {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #fff;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1.5rem;
+  border-radius: 10px;
+  margin-top: 1.25rem;
+  color: #000;
+}
+.meal-div .meal-page .meal-ingredients p {
+  padding: 0;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.meal-instruction {
+  width: 45%;
+  margin: 0 auto;
+  padding: 1.3rem;
+  padding-top: 1.5rem;
+  border-radius: 10px;
+  margin-top: 1.25rem;
+  color: #000;
 }/*# sourceMappingURL=Meal.css.map */

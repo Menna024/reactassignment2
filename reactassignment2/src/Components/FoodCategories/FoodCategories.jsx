@@ -25,21 +25,19 @@ const FoodCategories = () => {
             <h2 className='title'>Learn, Cook, and Eat Your Food</h2>
 
             <div className='categories'>
-                {categories &&
-                    <div className='category-list'>
-                        <NavLink to={"/"} className='category-item'>
-                            <h3>All</h3>
-                        </NavLink>
 
-                        {
-                            categories.map((category) => (
-                                <NavLink key={category.idCategory} to={`/category/${category.strCategory}`} className='category-item'>
-                                        <h3>{category.strCategory}</h3>
-                                </NavLink>
-                            ))
-                        }
-                    </div>
-                }
+                <div className='category-list'>
+                    <NavLink to={"/"} className='category-item'>
+                        <h3>All</h3>
+                    </NavLink>
+                    {categories &&
+                    categories.map((category) => (
+                        <NavLink key={category.idCategory} to={`/category/${category.strCategory}`} className='category-item'>
+                            <h3>{category.strCategory}</h3>
+                        </NavLink>
+                    ))
+                    }
+                </div>
             </div>
         </div>
     );

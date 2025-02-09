@@ -5,12 +5,14 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // import { FaGlobeAmericas } from './../../../node_modules/react-icons/fa'; 
 import { MealsByCategoryContext } from '../../Context/MealsByCategoryContext';
+import { useNavigate } from 'react-router-dom';
 
 const Meals = () => {
     const { getAllMeals } = useContext(AllMealsContext);
     const { getMealsByCategory} = useContext(MealsByCategoryContext);
     const [meals, setMeals] = useState([]);
     const { name } = useParams();
+    const navigate = useNavigate();
     console.log('Name:', name);
 
     async function getAllMealsFromAPI() {
@@ -39,6 +41,12 @@ const Meals = () => {
         }
     }, [name]);
 
+
+    const handleViewRecipe = (mealId) => {
+        console.log('Meal ID:', mealId);
+        navigate(`/mealdetails/${mealId}`); 
+      };
+
     return (
         <>
             <FoodCategories />
@@ -52,7 +60,8 @@ const Meals = () => {
                                 <p className='meal-country'>
                                     {/* <FaGlobeAmericas /> */}
                                     {meal.strArea}</p>
-                                <button className='view-recipe-btn'>View Recipe</button>
+                                <button className='view-recipe-btn' onClick={() => handleViewRecipe(meal.idMeal)}>View Recipe</button>
+                                
                             </div>
                         ))
                     }
@@ -69,7 +78,7 @@ const Meals = () => {
                                 <p className='meal-country'>
                                     {/* <FaGlobeAmericas /> */}
                                     {meal.strArea}</p>
-                                <button className='view-recipe-btn'>View Recipe</button>
+                                <button className='view-recipe-btn' onClick={() => handleViewRecipe(meal.idMeal)}>View Recipe</button>
                             </div>
                         ))
                     }   

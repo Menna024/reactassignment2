@@ -13,8 +13,9 @@ const Meal = () => {
     async function getMealDetailsFromAPI() {
         let response = await getMealDetails(id);
         let data = await response;
-        console.log(data);
-        setMeal(data.meals);
+        console.log('Meal Details componet');
+        console.log(data.meals);
+        setMeal(data.meals[0]);
     }
 
     useEffect(() => {
@@ -23,17 +24,49 @@ const Meal = () => {
     }, [id]);
 
     return (
-        <div>
+        <div className='meal-div'>
             {meal && (
-                <div key={meal.idMeal} className='meal'>
-                    <img src={meal.strMealThumb} alt={meal.strMeal} className='meal-img' />
-                    <h3 className='meal-title'>{meal.strMeal}</h3>
-                    <p className='meal-country'>{meal.strArea}</p>
-                    <div className='meal-btns'>
-                        <button className='view-recipe-btn'>Youtube</button>
-                        <button className='view-recipe-btn'>Source</button>
+                <>
+                    <div className='meal-page'>
+                        <div key={meal.idMeal} className='meal'>
+                            <h3 className='meal-title'>{meal.strMeal}</h3>
+                            <img src={meal.strMealThumb} alt={meal.strMeal} className='meal-img' />
+
+                            <div className='meal-btns'>
+                                <button className='view-recipe-btn'>Youtube</button>
+                                <button className='view-recipe-btn'>Source</button>
+                            </div>
+                        </div>
+
+                        <div className='meal-ingredients'>
+                            <h3>Ingredients</h3>
+                            <hr></hr>
+                            {
+                                Object.keys(meal).map((key, index) => {
+                                    if (key.includes('strIngredient') && meal[key] !== '') {
+                                        return (
+                                            <p key={index}>
+                                                <span>{meal[key]}</span>
+                                                <span>  {meal[`strMeasure${key.slice(13)}`]}</span>
+                                            </p>
+                                        );
+                                    }
+                                })
+                            }
+                        </div>
                     </div>
-                </div>
+
+                    <div className='meal-instruction'>
+                        <p>
+                            {meal.strInstructions && meal.strInstructions.split('\r\n').map((instruction, index) => (
+                                <span key={index}>
+                                    {index + 1}. {instruction}
+                                    <br />
+                                </span>
+                            ))}
+                        </p>
+                    </div>
+                </>
             )}
         </div>
     );

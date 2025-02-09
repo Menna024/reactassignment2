@@ -9,8 +9,8 @@ function getMealsByCategory(category) {
     console.log(`url is`);
     console.log(`www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
     
-    return axios.get(`www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
-        .then((response) => {
+    return axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+        .then((response) => { console.log('Cat egory:', category);
             console.log('Cat Response:', response.data);
             return response.data;
         })
